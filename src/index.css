@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+/* Yellow and Oat Milk button animations */
+.btn-primary-yellow,
+.btn-primary-blue {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-yellow::after,
+.btn-primary-blue::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+.btn-primary-yellow:hover::after,
+.btn-primary-blue:hover::after {
+  left: 200%;
+  transition: left 0.75s ease-in-out;
+}
+
+.btn-primary-yellow:hover,
+.btn-primary-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(217, 119, 6, 0.4);
+}
+
+.btn-secondary-yellow,
+.btn-secondary-blue {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary-yellow:hover,
+.btn-secondary-blue:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+}
